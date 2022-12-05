@@ -21,6 +21,7 @@ let package = Package(
             dependencies: [],
             resources: [
                 .copy("Services/Mocks"),
+                .process("Resources"),
             ]),
         .testTarget(
             name: "SBPTests",

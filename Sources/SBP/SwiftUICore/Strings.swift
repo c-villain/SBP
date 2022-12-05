@@ -5,3 +5,4 @@ enum Strings {
     static let emptyText = "No any banking app".localized
     static let chooseOtherBank = "Choose other bank".localized
 }
+
