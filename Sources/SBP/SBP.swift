@@ -11,12 +11,16 @@ public class SBP {
     public init() { }
     
     public enum UIKit {
-        public static func show(on viewController: UIViewController,
-                                presentationStyle: UIModalPresentationStyle = .fullScreen) {
+        func chooseBank(on viewController: UIViewController,
+                        presentationStyle: UIModalPresentationStyle = .fullScreen,
+                        completion: @escaping (String) -> (),
+                        onClose: @escaping () -> ()) {
             let vc = UIHostingController(rootView: BanksViewConnector() {
                 print($0)
-//                viewController.presentedViewController?.dismiss(animated: true)
+                completion($0)
+                viewController.presentedViewController?.dismiss(animated: true)
             } onCloseTap: {
+                onClose()
                 viewController.presentedViewController?.dismiss(animated: true)
             })
             vc.modalPresentationStyle = presentationStyle
