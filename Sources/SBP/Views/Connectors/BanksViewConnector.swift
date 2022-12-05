@@ -49,8 +49,10 @@ public struct BanksViewConnector: Connector {
                 /*
                 state = .loading
                 
-                banks = Mock.API.checkApps(for: Array(Mock.API.getBankApplications()))
-                state = .loaded
+                DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
+                    banks = Mock.API.checkApps(for: Array(Mock.API.getBankApplications()))
+                    state = .loaded
+                }
                  */
                 state = .loading
                 let allBanks = try await API.getBankApplications()
