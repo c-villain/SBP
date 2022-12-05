@@ -1,5 +1,5 @@
 # SBP
-Swift package for service SBP (СБП), more details about SBP you can find [here](https://sbp.nspk.ru)
+Swift package for service SBP (СБП), more details about SBP you can find [here](https://sbp.nspk.ru).
 
 ## Quick Start
 
@@ -69,7 +69,7 @@ You can copy and paste all lines from example
 
 ### Different cases
 
-Based on upper info if service finds installed apps module opens screen with them:
+Based on upper info if service finds installed apps then module opens screen with them:
 
   <p align="left">
   <img src="demo/with_apps.gif" alt="" height="400">
