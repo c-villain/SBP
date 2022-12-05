@@ -14,6 +14,7 @@
 		5A532FA029311FB500C5FCEA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5A532F9F29311FB500C5FCEA /* Assets.xcassets */; };
 		5A532FA329311FB500C5FCEA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5A532FA129311FB500C5FCEA /* LaunchScreen.storyboard */; };
 		5A532FAE2931207C00C5FCEA /* SBP in Frameworks */ = {isa = PBXBuildFile; productRef = 5A532FAD2931207C00C5FCEA /* SBP */; };
+		5A666640293E4CF50067118A /* SBPay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A66663F293E4CF50067118A /* SBPay.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		5A532FA229311FB500C5FCEA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5A532FA429311FB500C5FCEA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5A532FAB29311FEA00C5FCEA /* SBP */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = SBP; path = ..; sourceTree = "<group>"; };
+		5A66663F293E4CF50067118A /* SBPay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBPay.swift; sourceTree = "<group>"; };
 		5A877328293612E700BB99CF /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Main.strings; sourceTree = "<group>"; };
 		5A877329293612E700BB99CF /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -66,6 +68,7 @@
 				5A532F9629311FB400C5FCEA /* AppDelegate.swift */,
 				5A532F9829311FB400C5FCEA /* SceneDelegate.swift */,
 				5A532F9A29311FB400C5FCEA /* ViewController.swift */,
+				5A66663F293E4CF50067118A /* SBPay.swift */,
 				5A532F9C29311FB400C5FCEA /* Main.storyboard */,
 				5A532F9F29311FB500C5FCEA /* Assets.xcassets */,
 				5A532FA129311FB500C5FCEA /* LaunchScreen.storyboard */,
@@ -165,6 +168,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5A532F9B29311FB400C5FCEA /* ViewController.swift in Sources */,
+				5A666640293E4CF50067118A /* SBPay.swift in Sources */,
 				5A532F9729311FB400C5FCEA /* AppDelegate.swift in Sources */,
 				5A532F9929311FB400C5FCEA /* SceneDelegate.swift in Sources */,
 			);
