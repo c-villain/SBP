@@ -11,7 +11,7 @@ public class SBP {
     public init() { }
     
     public enum UIKit {
-        func chooseBank(on viewController: UIViewController,
+        public func chooseBank(on viewController: UIViewController,
                         presentationStyle: UIModalPresentationStyle = .fullScreen,
                         completion: @escaping (String) -> (),
                         onClose: @escaping () -> ()) {
