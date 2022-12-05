@@ -1,5 +1,6 @@
 import SwiftUI
 
+@available(iOS 13, *)
 public struct AsyncImage: View {
     
     @ObservedObject private var loader: ImageLoader
@@ -72,7 +73,7 @@ public struct AsyncImage: View {
 
 }
 
-
+@available(iOS 13, *)
 struct AsyncImage_Previews: PreviewProvider {
     @Environment(\.imageCache) static var cache: ImageCache
     

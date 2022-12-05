@@ -1,5 +1,6 @@
 import SwiftUI
 
+@available(iOS 13, *)
 struct FullBankList: View {
     
     @Environment(\.presentationMode) var presentationMode
@@ -82,6 +83,7 @@ struct FullBankList: View {
     }
 }
     
+@available(iOS 13, *)
 struct FullBankList_preview: PreviewProvider {
     static var previews: some View {
         

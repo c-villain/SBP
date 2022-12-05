@@ -8,6 +8,7 @@
 
 import SwiftUI
 
+@available(iOS 13, *)
 struct SwipeToBack: ViewModifier {
     
     var presentationMode: Binding<PresentationMode>
@@ -34,6 +35,7 @@ struct SwipeToBack: ViewModifier {
     
 }
 
+@available(iOS 13, *)
 extension View {
     func swipeToBack(presentationMode: Binding<PresentationMode>, /*geometry: GeometryProxy,*/ onChanged: (()->Void)?  = nil) -> some View {
         ModifiedContent(

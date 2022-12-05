@@ -1,5 +1,6 @@
 import SwiftUI
 
+@available(iOS 13, *)
 public struct SbpButtonStyle: ButtonStyle {
     private let fullWidth: Bool
     private let height: CGFloat

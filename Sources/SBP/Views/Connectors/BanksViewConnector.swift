@@ -1,10 +1,12 @@
 import SwiftUI
 
+@available(iOS 13, *)
 enum ViewState {
     case loading
     case loaded
 }
 
+@available(iOS 13, *)
 struct BanksViewConnector: Connector {
     
     @State var banks: [Bank] = []
@@ -62,6 +64,7 @@ struct BanksViewConnector: Connector {
     }
 }
 
+@available(iOS 13, *)
 struct BanksViewConnector_preview: PreviewProvider {
     static var previews: some View {
         

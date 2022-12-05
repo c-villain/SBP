@@ -1,5 +1,6 @@
 import SwiftUI
 
+@available(iOS 13, *)
 struct Skeleton: View {
     
     var body: some View {
@@ -37,6 +38,7 @@ struct Skeleton: View {
     }
 }
 
+@available(iOS 13, *)
 struct Skeleton_preview: PreviewProvider {
     static var previews: some View {
         Group {

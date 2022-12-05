@@ -6,9 +6,6 @@ import PackageDescription
 let package = Package(
     name: "SBP",
     defaultLocalization: "ru",
-    platforms: [
-        .iOS(.v13)
-    ],
     products: [
         .library(
             name: "SBP",

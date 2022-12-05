@@ -1,5 +1,6 @@
 import SwiftUI
 
+@available(iOS 13, *)
 struct BankButton: View {
     
     let id: String
@@ -29,6 +30,7 @@ struct BankButton: View {
     }
 }
 
+@available(iOS 13, *)
 struct BankButton_preview: PreviewProvider {
     static var previews: some View {
         BankButton( id: "bank100000000111",
