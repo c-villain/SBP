@@ -21,9 +21,6 @@ let package = Package(
             dependencies: [],
             resources: [
                 .copy("Services/Mocks"),
-            ],
-            swiftSettings: [
-                .define("SPM")
             ]),
         .testTarget(
             name: "SBPTests",
