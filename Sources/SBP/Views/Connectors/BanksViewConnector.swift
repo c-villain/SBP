@@ -7,15 +7,21 @@ enum ViewState {
 }
 
 @available(iOS 13, *)
-struct BanksViewConnector: Connector {
+public struct BanksViewConnector: Connector {
     
     @State var banks: [Bank] = []
     @State var state: ViewState = .loading
     
     let onBankTap: CommandWith<String>?
-    let onCloseTap: Command
+    let onCloseTap: Command?
     
-    func map() -> some View {
+    public init(onBankTap: CommandWith<String>?,
+                onCloseTap: Command?) {
+        self.onBankTap = onBankTap
+        self.onCloseTap = onCloseTap
+    }
+    
+    public func map() -> some View {
         NavigationView {
             Group {
                 switch state {
@@ -46,6 +52,7 @@ struct BanksViewConnector: Connector {
                 banks = Mock.API.checkApps(for: Array(Mock.API.getBankApplications()))
                 state = .loaded
                  */
+                state = .loading
                 let allBanks = try await API.getBankApplications()
                 DispatchQueue.main.async {
                     banks = API.checkApps(for: allBanks)
@@ -67,11 +74,8 @@ struct BanksViewConnector: Connector {
 @available(iOS 13, *)
 struct BanksViewConnector_preview: PreviewProvider {
     static var previews: some View {
-        
-        let banks = Array(Mock.API.getBankApplications().prefix(10))
-        
         return Group {
-            BanksViewConnector(banks: banks) {
+            BanksViewConnector() {
                 print($0)
             } onCloseTap: {
                 
@@ -79,7 +83,7 @@ struct BanksViewConnector_preview: PreviewProvider {
             .previewDisplayName("Installed apps")
             .previewLayout(.sizeThatFits)
             
-            BanksViewConnector(banks: banks) {
+            BanksViewConnector() {
                 print($0)
             } onCloseTap: {
                 

@@ -8,7 +8,7 @@ struct FullBankList: View {
     let banks: [(id: String, name: String, logo: String)]
     let backButton: Bool
     let onBankTap: CommandWith<String>?
-    let onCloseTap: Command
+    let onCloseTap: Command?
     
     var body: some View {
             ZStack {
@@ -28,7 +28,7 @@ struct FullBankList: View {
                     .hTrailing()
                     .vTop()
                     .onTapGesture {
-                        onCloseTap()
+                        onCloseTap?()
                     }
                     .padding(16)
                     .zIndex(1)
