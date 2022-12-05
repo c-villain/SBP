@@ -66,3 +66,19 @@ also you need add <b>LSApplicationQueriesSchemes</b> key into you project <b>inf
 
 That's need for ```UIApplication.shared.canOpenURL``` method worked correctly.
 You can copy and paste all lines from example
+
+### Different cases
+
+Based on upper info if service finds installed apps module opens screen with them:
+
+  <p align="left">
+  <img src="demo/with_apps.gif" alt="" height="400">
+  </p>
+  
+  Otherwise service offers to choose bank from possible connected to SBP:
+  
+  <p align="left">
+  <img src="demo/no_apps.gif" alt="" height="400">
+  </p>
+  
+
