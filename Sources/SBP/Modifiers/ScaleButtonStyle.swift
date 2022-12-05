@@ -1,5 +1,6 @@
 import SwiftUI
 
+@available(iOS 13, *)
 public struct ScaleButtonStyle: ButtonStyle {
     public init() {}
     
@@ -11,6 +12,7 @@ public struct ScaleButtonStyle: ButtonStyle {
     }
 }
 
+@available(iOS 13, *)
 public extension ButtonStyle where Self == ScaleButtonStyle {
     static var scale: ScaleButtonStyle {
         ScaleButtonStyle()

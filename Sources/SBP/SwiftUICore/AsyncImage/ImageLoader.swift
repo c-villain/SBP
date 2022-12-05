@@ -1,6 +1,7 @@
 import SwiftUI
 import Combine
 
+@available(iOS 13, *)
 public class ImageLoader: ObservableObject {
     @Published var image: UIImage?
     

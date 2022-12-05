@@ -1,5 +1,6 @@
 import SwiftUI
 
+@available(iOS 13, *)
 extension Color {
     public enum Background {
         public static let primary = Color("background_primary", bundle: .module)

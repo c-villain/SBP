@@ -1,5 +1,6 @@
 import SwiftUI
 
+@available(iOS 13, *)
 struct BanksView<Content: View>: View {
     
     private let apps: [(id: String, name: String, logo: String, isInstalled: Bool)]
@@ -69,6 +70,7 @@ struct BanksView<Content: View>: View {
     }
 }
 
+@available(iOS 13, *)
 struct BanksView_preview: PreviewProvider {
     static var previews: some View {
         
