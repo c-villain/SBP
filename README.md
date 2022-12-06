@@ -69,13 +69,13 @@ You can copy and paste all lines from example
 
 ### Different cases
 
-Based on upper info if service finds installed apps then module opens screen with them:
+Based on the infomartion above if service finds installed apps then module opens screen with the list of bank apps:
 
   <p align="left">
   <img src="demo/with_apps.gif" alt="" height="400">
   </p>
   
-  Otherwise service offers to choose bank from possible connected to SBP:
+  Otherwise the service offers to choose a bank from the list:
   
   <p align="left">
   <img src="demo/no_apps.gif" alt="" height="400">
