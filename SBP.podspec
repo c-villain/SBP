@@ -8,5 +8,6 @@ Pod::Spec.new do |s|
   s.source           = { :git => 'https://github.com/c-villain/SBP.git', :branch => 'main' }
   s.swift_version = '5.0'
   s.source_files = 'Sources/SBP/**/*.swift'
-  s.resource_bundles = ['Sources/SBP/**/*.{json,png,jpeg,jpg,xcassets}']
+#   s.resource_bundles = ['Sources/SBP/**/*.{json,png,jpeg,jpg,xcassets}']
+    s.resource = 'Sources/SBP/**/*.{json,png,jpeg,jpg,xcassets}'
 end
