@@ -7,7 +7,7 @@ extension Mock {
         var result: T? = nil
         
         do {
-            if let path = Bundle.sbp.path(forResource: forResource, ofType: "json", inDirectory: "Mocks"),
+            if let path = Bundle.sbp.path(forResource: forResource, ofType: "json"),
                 let jsonData = try String(contentsOfFile: path).data(using: .utf8) {
                 result = try JSONDecoder().decode(T.self, from: jsonData)
             }
