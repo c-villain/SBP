@@ -20,7 +20,7 @@ let package = Package(
             name: "SBP",
             dependencies: [],
             resources: [
-                .copy("Services/Mocks"),
+                .copy("Resources/Mocks"),
             ]),
         .testTarget(
             name: "SBPTests",
