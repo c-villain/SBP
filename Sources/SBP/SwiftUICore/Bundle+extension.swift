@@ -1,12 +1,18 @@
-import class Foundation.Bundle
+import Foundation
 
 private class BundleFinder {}
 
-extension Foundation.Bundle {
+extension Bundle {
     /// Returns the resource bundle associated with the current Swift module.
     static var sbp: Bundle = {
-        let bundleName = "SBP_SBP"
+        let bundleName: String
 
+        #if SWIFT_PACKAGE
+        bundleName = "SBP_SBP"
+        #else
+        bundleName = "SBP"
+        #endif
+        
         let candidates = [
             // Bundle should be present here when the package is linked into an App.
             Bundle.main.resourceURL,
@@ -24,6 +30,6 @@ extension Foundation.Bundle {
                 return bundle
             }
         }
-        fatalError("unable to find bundle named SBP_SBP")
+        fatalError("unable to find bundle named SBP")
     }()
 }
