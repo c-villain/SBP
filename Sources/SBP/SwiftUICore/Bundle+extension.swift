@@ -32,7 +32,9 @@ extension Bundle {
             }
         }
         #else
-        return Bundle(identifier: "com.cocoapods.SBP")
+        if let bundle = Bundle(identifier: "com.cocoapods.SBP") {
+            return bundle
+        }
         #endif
         fatalError("unable to find bundle named SBP")
     }()
