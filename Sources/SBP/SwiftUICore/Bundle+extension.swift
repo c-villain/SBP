@@ -6,14 +6,11 @@ extension Bundle {
     /// Returns the resource bundle associated with the current Swift module.
     static var sbp: Bundle = {
         let bundleName: String
-        let bundleExtension: String
         
         #if SWIFT_PACKAGE
         bundleName = "SBP_SBP"
-        bundleExtension = ".bundle"
         #else
         bundleName = "SBP"
-        bundleExtension = ".framework"
         #endif
         
         let candidates = [
@@ -27,12 +24,16 @@ extension Bundle {
             Bundle.main.bundleURL,
         ]
 
+        #if SWIFT_PACKAGE
         for candidate in candidates {
-            let bundlePath = candidate?.appendingPathComponent(bundleName + bundleExtension)
+            let bundlePath = candidate?.appendingPathComponent(bundleName + ".bundle")
             if let bundle = bundlePath.flatMap(Bundle.init(url:)) {
                 return bundle
             }
         }
+        #else
+        return Bundle(identifier: "com.cocoapods.SBP")
+        #endif
         fatalError("unable to find bundle named SBP")
     }()
 }
