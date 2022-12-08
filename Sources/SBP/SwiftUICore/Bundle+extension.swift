@@ -24,18 +24,12 @@ extension Bundle {
             Bundle.main.bundleURL,
         ]
 
-        #if SWIFT_PACKAGE
         for candidate in candidates {
             let bundlePath = candidate?.appendingPathComponent(bundleName + ".bundle")
             if let bundle = bundlePath.flatMap(Bundle.init(url:)) {
                 return bundle
             }
         }
-        #else
-        if let bundle = Bundle(identifier: "com.cocoapods.SBP") {
-            return bundle
-        }
-        #endif
         fatalError("unable to find bundle named SBP")
     }()
 }
