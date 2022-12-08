@@ -6,11 +6,14 @@ extension Bundle {
     /// Returns the resource bundle associated with the current Swift module.
     static var sbp: Bundle = {
         let bundleName: String
-
+        let bundleExtension: String
+        
         #if SWIFT_PACKAGE
         bundleName = "SBP_SBP"
+        bundleExtension = ".bundle"
         #else
         bundleName = "SBP"
+        bundleExtension = ".framework"
         #endif
         
         let candidates = [
@@ -25,7 +28,7 @@ extension Bundle {
         ]
 
         for candidate in candidates {
-            let bundlePath = candidate?.appendingPathComponent(bundleName + ".bundle")
+            let bundlePath = candidate?.appendingPathComponent(bundleName + bundleExtension)
             if let bundle = bundlePath.flatMap(Bundle.init(url:)) {
                 return bundle
             }
