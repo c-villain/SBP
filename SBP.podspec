@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'SBP'
-  s.version          = '0.2.4'
+  s.version          = '0.2.5'
   s.summary          = 'SBP sources'
   s.homepage         = 'https://github.com/c-villain/SBP'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
