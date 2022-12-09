@@ -1,7 +1,7 @@
 import SwiftUI
 
 @available(iOS 13, *)
-struct BanksView<Content: View>: View {
+struct BanksViewPattern<Content: View>: View {
     
     private let apps: [(id: String, name: String, logo: String, isInstalled: Bool)]
     private let onBankTap: CommandWith<String>?
@@ -41,7 +41,7 @@ struct BanksView<Content: View>: View {
                 ScrollView(showsIndicators: false) {
                     VStack(spacing: 8) {
                         ForEach(apps, id: \.id) { bank in
-                            BankButton(id: bank.id,
+                            BankButtonPattern(id: bank.id,
                                        name: bank.name,
                                        logo: bank.logo,
                                        onBankTap: onBankTap)
@@ -71,7 +71,7 @@ struct BanksView<Content: View>: View {
 }
 
 @available(iOS 13, *)
-struct BanksView_preview: PreviewProvider {
+struct BanksViewPattern_preview: PreviewProvider {
     static var previews: some View {
         
         let apps: [(id: String, name: String, logo: String, isInstalled: Bool)] = [
@@ -82,22 +82,22 @@ struct BanksView_preview: PreviewProvider {
         ]
     
         return Group {
-            BanksView(apps: apps) {
+            BanksViewPattern(apps: apps) {
                 print($0)
             } onCloseTap: {
                 
             } allBanksList: {
-                FullBankList_preview.previews
+                FullBankListPattern_preview.previews
             }
             .previewDisplayName("Installed apps")
             .previewLayout(.sizeThatFits)
             
-            BanksView(apps: apps) {
+            BanksViewPattern(apps: apps) {
                 print($0)
             } onCloseTap: {
                 
             } allBanksList: {
-                FullBankList_preview.previews
+                FullBankListPattern_preview.previews
             }
             .previewDisplayName("Installed apps")
             .previewLayout(.sizeThatFits)

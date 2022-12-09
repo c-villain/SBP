@@ -8,7 +8,7 @@ final class SBPay {
                     onBankChoose: @escaping (String) -> (),
                     onClose: @escaping () -> ()) {
         
-        let vc = UIHostingController(rootView: BanksViewConnector() {
+        let vc = UIHostingController(rootView: BanksView() {
             print($0)
             onBankChoose($0)
             viewController.presentedViewController?.dismiss(animated: true)

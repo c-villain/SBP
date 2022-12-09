@@ -7,7 +7,7 @@ enum ViewState {
 }
 
 @available(iOS 13, *)
-public struct BanksViewConnector: Connector {
+public struct BanksView: Connector {
     
     @State var banks: [Bank] = []
     @State var state: ViewState = .loading
@@ -29,7 +29,7 @@ public struct BanksViewConnector: Connector {
                     Skeleton()
                 case .loaded:
                     if banks.filter { $0.isInstalled }.count > 0 {
-                        BanksView(apps: banks.filter { $0.isInstalled }.map { ($0.id, $0.name, $0.logoURL, $0.isInstalled)},
+                        BanksViewPattern(apps: banks.filter { $0.isInstalled }.map { ($0.id, $0.name, $0.logoURL, $0.isInstalled)},
                                   onBankTap: onBankTap,
                                   onCloseTap: onCloseTap,
                                   allBanksList: {
@@ -46,29 +46,19 @@ public struct BanksViewConnector: Connector {
         }
         .onAppear {
             Task {
-                
-                state = .loading
-                
-                DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
-                    banks = Mock.API.checkApps(for: Array(Mock.API.getBankApplications()))
-                    state = .loaded
-                }
-                 
-                /*
                 state = .loading
                 let allBanks = try await API.getBankApplications()
                 DispatchQueue.main.async {
                     banks = API.checkApps(for: allBanks)
                     state = .loaded
                 }
-                 */
             }
         }
     }
     
     @ViewBuilder
     func fullBankList(backButton: Bool = false) -> some View {
-        FullBankList(banks: banks.map { ($0.id, $0.name, $0.logoURL)},
+        FullBankListPattern(banks: banks.map { ($0.id, $0.name, $0.logoURL)},
                      backButton: backButton,
                      onBankTap: onBankTap,
                      onCloseTap: onCloseTap)
@@ -76,10 +66,10 @@ public struct BanksViewConnector: Connector {
 }
 
 @available(iOS 13, *)
-struct BanksViewConnector_preview: PreviewProvider {
+struct BanksView_preview: PreviewProvider {
     static var previews: some View {
         return Group {
-            BanksViewConnector() {
+            BanksView() {
                 print($0)
             } onCloseTap: {
                 
@@ -87,7 +77,7 @@ struct BanksViewConnector_preview: PreviewProvider {
             .previewDisplayName("Installed apps")
             .previewLayout(.sizeThatFits)
             
-            BanksViewConnector() {
+            BanksView() {
                 print($0)
             } onCloseTap: {
                 
