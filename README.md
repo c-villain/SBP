@@ -19,7 +19,7 @@ final class SBPay {
                     completion: @escaping (String) -> (),
                     onClose: @escaping () -> ()) {
         
-        let vc = UIHostingController(rootView: BanksViewConnector() {
+        let vc = UIHostingController(rootView: BanksView() {
             print($0)
             completion($0)
             viewController.presentedViewController?.dismiss(animated: true)
