@@ -1,7 +1,7 @@
 import SwiftUI
 
 @available(iOS 13, *)
-struct FullBankList: View {
+struct FullBankListPattern: View {
     
     @Environment(\.presentationMode) var presentationMode
     @GestureState private var dragOffset = CGSize.zero
@@ -50,41 +50,20 @@ struct FullBankList: View {
                     ScrollView(showsIndicators: false) {
                         VStack(spacing: 8) {
                             ForEach(banks, id: \.id) { bank in
-                                BankButton(id: bank.id, name: bank.name, logo: bank.logo, onBankTap: onBankTap)
+                                BankButtonPattern(id: bank.id, name: bank.name, logo: bank.logo, onBankTap: onBankTap)
                             }
                         }
                     }
                     .padding(.horizontal, 16)
                 }
                 .padding(.top, 48)
-                //            .gesture(DragGesture().updating($dragOffset, body: { (value, state, transaction) in
-                //                if(value.startLocation.x < 20 &&
-                //                   value.translation.width > 100) {
-                //                    self.presentationMode.wrappedValue.dismiss()
-                //                }
-                //            })
-                //            )
             }
-            //        .navigationBarTitle("", displayMode: .inline)
-            //        .navigationBarBackButtonHidden(true)
-            //        .navigationBarItems(leading:
-            //            Image.Icons.back
-            //                .frame(width: 24.0, height: 24)
-            //                .hLeading()
-            //                .vTop()
-            //                .opacity(backButton ? 1.0 : 0.0)
-            //                .onTapGesture {
-            //                    self.presentationMode.wrappedValue.dismiss()
-            //                }
-            //                .padding(16)
-            ////                .zIndex(1)
-            //        )
             .navigationBarHidden(true)
     }
 }
     
 @available(iOS 13, *)
-struct FullBankList_preview: PreviewProvider {
+struct FullBankListPattern_preview: PreviewProvider {
     static var previews: some View {
         
         let installedApps: [(id: String, name: String, logo: String)] = [
@@ -95,7 +74,7 @@ struct FullBankList_preview: PreviewProvider {
         ]
         
         return Group {
-            FullBankList(banks: installedApps,
+            FullBankListPattern(banks: installedApps,
                          backButton: true) {
                 print($0)
             } onCloseTap: {
@@ -104,7 +83,7 @@ struct FullBankList_preview: PreviewProvider {
             .previewDisplayName("Installed apps")
             .previewLayout(.sizeThatFits)
             
-            FullBankList(banks: installedApps,
+            FullBankListPattern(banks: installedApps,
                          backButton: false) {
                 print($0)
             } onCloseTap: {

@@ -1,7 +1,7 @@
 import SwiftUI
 
 @available(iOS 13, *)
-struct BankButton: View {
+struct BankButtonPattern: View {
     
     let id: String
     let name: String
@@ -31,9 +31,9 @@ struct BankButton: View {
 }
 
 @available(iOS 13, *)
-struct BankButton_preview: PreviewProvider {
+struct BankButtonPattern_preview: PreviewProvider {
     static var previews: some View {
-        BankButton( id: "bank100000000111",
+        BankButtonPattern( id: "bank100000000111",
                     name: "Сбербанк",
                     logo: "https://qr.nspk.ru/proxyapp/logo/bank100000000111.png") {
             print($0)
