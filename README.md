@@ -1,4 +1,9 @@
 # SBP
+
+[![](https://img.shields.io/endpoint?url=https%3A%2F%2Fswiftpackageindex.com%2Fapi%2Fpackages%2Fc-villain%2FSBP%2Fbadge%3Ftype%3Dswift-versions)](https://swiftpackageindex.com/c-villain/SBP)
+[![](https://img.shields.io/endpoint?url=https%3A%2F%2Fswiftpackageindex.com%2Fapi%2Fpackages%2Fc-villain%2FSBP%2Fbadge%3Ftype%3Dplatforms)](https://swiftpackageindex.com/c-villain/SBP)
+[![contact: @lexkraev](https://img.shields.io/badge/contact-%40lexkraev-blue.svg?style=flat)](https://t.me/lexkraev)
+
 Swift package for service SBP (СБП), more details about SBP you can find [here](https://sbp.nspk.ru).
 
 ## Quick Start
