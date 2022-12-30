@@ -7,7 +7,7 @@
 ![](https://img.shields.io/github/license/c-villain/SBP)
 
 [![contact: @lexkraev](https://img.shields.io/badge/contact-%40lexkraev-blue.svg?style=flat)](https://t.me/lexkraev)
-[![Telegram Group](https://img.shields.io/endpoint?color=neon&style=flat-square&url=https%3A%2F%2Ftg.sumanjay.workers.dev%2Fswiftui_dev)](https://telegram.dog/swiftui_dev)
+[![Telegram Group](https://img.shields.io/endpoint?color=brightgreen&url=https%3A%2F%2Ftg.sumanjay.workers.dev%2Fswiftui_dev)](https://telegram.dog/swiftui_dev)
 
 Swift package for service SBP (СБП), more details about SBP you can find [here](https://sbp.nspk.ru).
 
