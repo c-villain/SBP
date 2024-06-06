@@ -32,12 +32,17 @@ open class API {
     class func checkApps(for schemas: [Bank]) -> [Bank] {
         var banks = schemas
         for index in banks.indices {
-            if let url = URL(string: schemas[index].schema + "://") {
-                if UIApplication.shared.canOpenURL(url) {
-                    banks[index].isInstalled = true
-                }
+            if index < 5 {
+                banks[index].isInstalled = true
             }
         }
+//        for index in banks.indices {
+//            if let url = URL(string: schemas[index].schema + "://") {
+//                if UIApplication.shared.canOpenURL(url) {
+//                    banks[index].isInstalled = true
+//                }
+//            }
+//        }
         return banks
     }
 }

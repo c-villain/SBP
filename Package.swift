@@ -21,6 +21,7 @@ let package = Package(
             dependencies: [],
             resources: [
                 .process("Resources/Mocks"),
+                .process("Resources/Fonts"),
             ]),
         .testTarget(
             name: "SBPTests",
