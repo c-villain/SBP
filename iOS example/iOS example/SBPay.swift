@@ -8,15 +8,15 @@ final class SBPay {
                     onBankChoose: @escaping (String) -> (),
                     onClose: @escaping () -> ()) {
         
-        let vc = UIHostingController(rootView: BanksView() {
-            print($0)
-            onBankChoose($0)
-            viewController.presentedViewController?.dismiss(animated: true)
-        } onCloseTap: {
-            onClose()
-            viewController.presentedViewController?.dismiss(animated: true)
-        })
-        vc.modalPresentationStyle = presentationStyle
-        viewController.present(vc, animated: true)
-    }
+      registerFonts()
+      let vc = UIHostingController(rootView: BanksView() {
+          onBankChoose($0)
+          viewController.presentedViewController?.dismiss(animated: true)
+      } onCloseTap: {
+          onClose()
+          viewController.presentedViewController?.dismiss(animated: true)
+      })
+      vc.modalPresentationStyle = presentationStyle
+      viewController.present(vc, animated: true)
+  }
 }

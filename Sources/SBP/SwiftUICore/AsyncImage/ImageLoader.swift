@@ -11,7 +11,7 @@ public class ImageLoader: ObservableObject {
     private var cache: ImageCache?
     private var cancellable: AnyCancellable?
     
-    private static let imageProcessingQueue = DispatchQueue(label: "ru.lenta.image-processing")
+    private static let imageProcessingQueue = DispatchQueue(label: "image-processing")
     
     init(url: URL?, cache: ImageCache? = nil) {
         self.url = url

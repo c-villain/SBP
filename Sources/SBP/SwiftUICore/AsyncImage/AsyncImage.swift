@@ -9,7 +9,7 @@ public struct AsyncImage: View {
     private var placeholder: AnyView? = AnyView(Color.clear)
     
     private var configurations: [(Image) -> Image] = []
-
+    
     public init(_ url: URL?, cache: ImageCache?) {
         self.url = url
         loader = ImageLoader(url: url, cache: cache)
@@ -70,7 +70,7 @@ public struct AsyncImage: View {
         .onAppear(perform: loader.load)
         .onDisappear(perform: loader.cancel)
     }
-
+    
 }
 
 @available(iOS 13, *)
@@ -79,23 +79,28 @@ struct AsyncImage_Previews: PreviewProvider {
     
     static var previews: some View {
         Group {
-            AsyncImage(URL(string: "https://experience-ireland.s3.amazonaws.com/thumbs2/d07258d8-4274-11e9-9c68-02b782d69cda.800x600.jpg")!, cache: Self.cache)
-                .placeholder {
-                    Text("Loading ...")
-                }
-                .resizable()
-                .scaledToFill()
-                .frame(width: 104, height: 144)
-                .clipped()
+            AsyncImage(
+                URL(string: "https://experience-ireland.s3.amazonaws.com/thumbs2/d07258d8-4274-11e9-9c68-02b782d69cda.800x600.jpg")!,
+                cache: Self.cache
+            )
+            .placeholder {
+                Text("Loading ...")
+            }
+            .resizable()
+            .scaledToFill()
+            .frame(width: 104, height: 144)
+            .clipped()
             
-            AsyncImage(URL(string: "https://experience-ireland.s3.amazonaws.com/thumbs2/d07258d8-4274-11e9-9c68-02b782d69cda.800x600.jpg")!)
-                .placeholder {
-                    Text("Loading ...")
-                }
-                .resizable()
-                .scaledToFill()
-                .frame(width: 104, height: 144)
-                .clipped()
+            AsyncImage(
+                URL(string: "https://experience-ireland.s3.amazonaws.com/thumbs2/d07258d8-4274-11e9-9c68-02b782d69cda.800x600.jpg")!
+            )
+            .placeholder {
+                Text("Loading ...")
+            }
+            .resizable()
+            .scaledToFill()
+            .frame(width: 104, height: 144)
+            .clipped()
         }.previewLayout(.sizeThatFits)
     }
 }

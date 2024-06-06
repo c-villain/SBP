@@ -8,10 +8,12 @@ struct BanksViewPattern<Content: View>: View {
     private let onCloseTap: Command?
     private let allBanksList: Content
     
-    init(apps: [(id: String, name: String, logo: String, isInstalled: Bool)],
-         onBankTap: CommandWith<String>?,
-         onCloseTap: Command?,
-         @ViewBuilder allBanksList: () -> Content) {
+    init(
+        apps: [(id: String, name: String, logo: String, isInstalled: Bool)],
+        onBankTap: CommandWith<String>?,
+        onCloseTap: Command?,
+        @ViewBuilder allBanksList: () -> Content
+    ) {
         self.apps = apps
         self.onBankTap = onBankTap
         self.onCloseTap = onCloseTap
@@ -21,52 +23,46 @@ struct BanksViewPattern<Content: View>: View {
     @State private var showAll: Bool = false
     
     var body: some View {
-        ZStack {
-            Image.Icons.close
-                .frame(width: 24.0, height: 24)
-                .hTrailing()
-                .vTop()
-                .onTapGesture {
-                    onCloseTap?()
-                }
-                .padding(16)
-                .zIndex(1)
+        VStack(alignment: .leading, spacing: 15) {
             
-            VStack(alignment: .leading, spacing: 15) {
-
-                Text("Выберите банк для оплаты")
-                    .font(.system(size: 20))
-                    .fontWeight(.bold)
-                
-                ScrollView(showsIndicators: false) {
-                    VStack(spacing: 8) {
-                        ForEach(apps, id: \.id) { bank in
-                            BankButtonPattern(id: bank.id,
-                                       name: bank.name,
-                                       logo: bank.logo,
-                                       onBankTap: onBankTap)
-                        }
-                        
-                        Button {
-                            showAll.toggle()
-                        } label: {
-                            NavigationLink(destination: allBanksList) {
-                                HStack(spacing: 10) {
-                                    Text(Strings.chooseOtherBank)
-                                        .font(.system(size: 18))
-                                        .fontWeight(.regular)
-                                        .foregroundColor(.primary)
-                                }
-                                .padding(.horizontal, 10.0)
-                            }
-                        }
-                        .buttonStyle(SbpButtonStyle())
+            Text(Strings.selectBank)
+                .font(.spb(.bold, size: 20))
+            
+            ScrollView(showsIndicators: false) {
+                VStack(spacing: 8) {
+                    ForEach(apps, id: \.id) { bank in
+                        BankButtonPattern(
+                            id: bank.id,
+                            name: bank.name,
+                            logo: bank.logo,
+                            onBankTap: onBankTap
+                        )
                     }
+                    
+                    NavigationLink(destination: allBanksList) {
+                        HStack(spacing: 10) {
+                            Text(Strings.chooseOtherBank)
+                                .font(.spb(.regular, size: 18))
+                                .fontWeight(.regular)
+                                .foregroundColor(.primary)
+                        }
+                        .padding(.horizontal, 10.0)
+                    }
+                    .buttonStyle(.sbp)
+                    .navigationBarTitle("", displayMode: .inline)
                 }
             }
-            .padding(.horizontal, 16)
-            .padding(.top, 48)
         }
+        .padding(.horizontal, 16)
+        .navigationBarItems(trailing: closeBtn)
+    }
+    
+    var closeBtn: some View {
+        Image.Icons.close
+            .frame(width: 24.0, height: 24)
+            .onTapGesture {
+                onCloseTap?()
+            }
     }
 }
 

@@ -15,14 +15,15 @@ public struct SbpButtonStyle: ButtonStyle {
         fullWidth: Bool = true,
         zoomAnimation: Bool = true,
         backgroundColor: Color = Color.Background.lightFon,
-        cornerRadius: CGFloat = Constants.Images.defaults) {
-            self.fullWidth = fullWidth
-            self.height = height
-            self.shouldFade = shouldFade
-            self.zoom = zoomAnimation
-            self.backgroundColor = backgroundColor
-            self.cornerRadius = cornerRadius
-        }
+        cornerRadius: CGFloat = Constants.Images.defaults
+    ) {
+        self.fullWidth = fullWidth
+        self.height = height
+        self.shouldFade = shouldFade
+        self.zoom = zoomAnimation
+        self.backgroundColor = backgroundColor
+        self.cornerRadius = cornerRadius
+    }
     
     public func makeBody(configuration: Self.Configuration) -> some View {
         configuration.label
@@ -38,5 +39,12 @@ public struct SbpButtonStyle: ButtonStyle {
             .scaleEffect((configuration.isPressed && zoom) ? 0.95 : 1)
             .animation(.linear(duration: 0.2))
             .brightness((configuration.isPressed && shouldFade) ? -0.05 : 0)
+    }
+}
+
+@available(iOS 13, *)
+public extension ButtonStyle where Self == SbpButtonStyle {
+    static var sbp: SbpButtonStyle {
+        SbpButtonStyle()
     }
 }

@@ -13,9 +13,11 @@ class ViewController: UIViewController {
     
     override func viewDidLayoutSubviews() {
         SBPay()
-            .chooseBank(on: self,
-                        onBankChoose: { print($0) },
-                        onClose: { } )
+            .chooseBank(
+                on: self,
+                onBankChoose: { print($0) },
+                onClose: { }
+            )
     }
 }
 

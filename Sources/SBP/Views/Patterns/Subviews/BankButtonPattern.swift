@@ -19,25 +19,30 @@ struct BankButtonPattern: View {
                     .frame(width: 50, height: 50)
                     .cornerRadius(Constants.Images.defaults)
                 Text(name)
-                    .font(.system(size: 18))
-                    .fontWeight(.regular)
+                    .font(.spb(.regular, size: 18))
                     .foregroundColor(.primary)
                 Spacer()
             }
             .padding(.horizontal, 10)
         }
-        .buttonStyle(SbpButtonStyle())
+        .buttonStyle(.sbp)
     }
 }
 
+
 @available(iOS 13, *)
 struct BankButtonPattern_preview: PreviewProvider {
+    
     static var previews: some View {
-        BankButtonPattern( id: "bank100000000111",
-                    name: "Сбербанк",
-                    logo: "https://qr.nspk.ru/proxyapp/logo/bank100000000111.png") {
-            print($0)
-        }
+        registerFonts()
+        
+        return BankButtonPattern(
+            id: "bank100000000111",
+            name: "Сбербанк",
+            logo: "https://qr.nspk.ru/proxyapp/logo/bank100000000111.png",
+            onBankTap: { print($0) }
+            
+        )
         .padding(16)
     }
 }
