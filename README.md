@@ -28,7 +28,7 @@ final class SBPay {
                     presentationStyle: UIModalPresentationStyle = .fullScreen,
                     completion: @escaping (String) -> (),
                     onClose: @escaping () -> ()) {
-        
+        registerFonts()
         let vc = UIHostingController(rootView: BanksView() {
             print($0)
             completion($0)
