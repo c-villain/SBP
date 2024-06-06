@@ -37,7 +37,6 @@ public struct BanksView: Connector {
                             onCloseTap: onCloseTap,
                             allBanksList: {
                                 fullBankList(backButton: true)
-                                    .background(Color.Background.primary.expandViewOutOfSafeArea())
                             }
                         )
                     } else {
@@ -47,7 +46,7 @@ public struct BanksView: Connector {
             }
             .background(Color.Background.primary.expandViewOutOfSafeArea())
         }
-        .accentColor(.black)
+        .accentColor(Color.Text.primary)
         .onAppear {
             Task {
                 state = .loading
@@ -68,6 +67,7 @@ public struct BanksView: Connector {
             onBankTap: onBankTap,
             onCloseTap: onCloseTap
         )
+        .background(Color.Background.primary.expandViewOutOfSafeArea())
     }
 }
 

@@ -3,16 +3,17 @@ import SwiftUI
 @available(iOS 13, *)
 struct FullBankListPattern: View {
     
-    @Environment(\.presentationMode) var presentationMode
-    @GestureState private var dragOffset = CGSize.zero
     let banks: [(id: String, name: String, logo: String)]
     let backButton: Bool
     let onBankTap: CommandWith<String>?
     let onCloseTap: Command?
     
-    @State private var searchText: String = ""
+    @Environment(\.presentationMode) var presentationMode
     
-    var filterdBanks: [(id: String, name: String, logo: String)] {
+    @State private var searchText: String = ""
+    @State private var bankfilterObserver = TextFieldObserver()
+    
+    var filteredBanks: [(id: String, name: String, logo: String)] {
         banks.filter {
             searchText.isEmpty ? true : $0.name.lowercased().contains(searchText.lowercased())
         }
@@ -31,23 +32,24 @@ struct FullBankListPattern: View {
                     .font(.spb(.regular, size: 14))
                     .multilineTextAlignment(.center)
                 
-                SearchBar(text: $searchText)
+                SearchBar(textObserver: bankfilterObserver)
             }
             
             ScrollView(showsIndicators: false) {
                 VStack(spacing: 8) {
-                    ForEach(filterdBanks, id: \.id) { bank in
+                    ForEach(filteredBanks, id: \.id) { bank in
                         BankButtonPattern(
-                            model: BankButtonPattern.Model(
-                                id: bank.id,
-                                name: bank.name,
-                                logo: bank.logo,
-                                onBankTap: onBankTap
-                            )
+                            id: bank.id,
+                            name: bank.name,
+                            logo: bank.logo,
+                            onBankTap: onBankTap
                         )
                     }
                 }
             }
+        }
+        .onReceive(bankfilterObserver.$debouncedText) { bank in
+            searchText = bank
         }
         .padding(.horizontal, 16)
         .navigationBarTitle("", displayMode: .inline)

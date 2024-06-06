@@ -27,18 +27,15 @@ struct BanksViewPattern<Content: View>: View {
             
             Text(Strings.selectBank)
                 .font(.spb(.bold, size: 20))
-                .fontWeight(.bold)
             
             ScrollView(showsIndicators: false) {
                 VStack(spacing: 8) {
                     ForEach(apps, id: \.id) { bank in
                         BankButtonPattern(
-                            model: BankButtonPattern.Model(
-                                id: bank.id,
-                                name: bank.name,
-                                logo: bank.logo,
-                                onBankTap: onBankTap
-                            )
+                            id: bank.id,
+                            name: bank.name,
+                            logo: bank.logo,
+                            onBankTap: onBankTap
                         )
                     }
                     

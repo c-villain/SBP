@@ -1,12 +1,30 @@
 import SwiftUI
+import Combine
+
+@available(iOS 13, *)
+class TextFieldObserver : ObservableObject {
+    @Published var debouncedText = ""
+    @Published var searchText = ""
+    
+    private var subscriptions = Set<AnyCancellable>()
+    
+    init() {
+        $searchText
+            .debounce(for: .seconds(0.4), scheduler: DispatchQueue.main)
+            .sink(receiveValue: { [weak self] t in
+                self?.debouncedText = t
+            } )
+            .store(in: &subscriptions)
+    }
+}
 
 @available(iOS 13, *)
 struct SearchBar: View {
     
-    @Binding var text: String
+    @ObservedObject var textObserver: TextFieldObserver
     
     var body: some View {
-        TextField(Strings.enterBankTitle, text: $text)
+        TextField(Strings.enterBankTitle, text: $textObserver.searchText)
             .font(.spb(.regular, size: 18))
             .padding(16.0)
             .background(
@@ -19,6 +37,6 @@ struct SearchBar: View {
 @available(iOS 13, *)
 #Preview {
     registerFonts()
-    return SearchBar(text: .constant(""))
+    return SearchBar(textObserver: TextFieldObserver())
         .padding(10.0)
 }

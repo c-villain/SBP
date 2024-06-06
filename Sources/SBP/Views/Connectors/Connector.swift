@@ -15,7 +15,7 @@ extension Connector {
 
 @available(iOS 13, *)
 fileprivate struct Connected<V: View>: View {
-
+    
     let map: () -> V
     
     public var body: V {
