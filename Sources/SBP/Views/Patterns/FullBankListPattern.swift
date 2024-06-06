@@ -15,7 +15,7 @@ struct FullBankListPattern: View {
     
     var filteredBanks: [(id: String, name: String, logo: String)] {
         banks.filter {
-            searchText.isEmpty ? true : $0.name.lowercased().contains(searchText.lowercased())
+            searchText.isEmpty ? true : $0.name.lowercased().contains(searchText.trimmingCharacters(in: .whitespacesAndNewlines).lowercased())
         }
     }
     
@@ -62,16 +62,6 @@ struct FullBankListPattern: View {
             .onTapGesture {
                 onCloseTap?()
             }
-    }
-    
-    var backBtn: some View {
-        Image.Icons.back
-            .frame(width: 24.0, height: 24)
-            .opacity(backButton ? 1.0 : 0.0)
-            .onTapGesture {
-                self.presentationMode.wrappedValue.dismiss()
-            }
-            .padding(16)
     }
 }
 
