@@ -1,4 +1,4 @@
-# SBP NSPK SDK, SDK для работы с СБП НСПК
+# SDK для работы с СБП НСПК
 
 [![Latest release](https://img.shields.io/github/v/release/c-villain/SBP?color=brightgreen&label=version)](https://github.com/c-villain/SBP/releases/latest)
 [![](https://img.shields.io/endpoint?url=https%3A%2F%2Fswiftpackageindex.com%2Fapi%2Fpackages%2Fc-villain%2FSBP%2Fbadge%3Ftype%3Dswift-versions)](https://swiftpackageindex.com/c-villain/SBP)
@@ -8,6 +8,7 @@
 
 [![contact: @lexkraev](https://img.shields.io/badge/contact-%40lexkraev-blue.svg?style=flat)](https://t.me/lexkraev)
 [![Telegram Group](https://img.shields.io/endpoint?color=brightgreen&url=https%3A%2F%2Ftg.sumanjay.workers.dev%2Fswiftui_dev)](https://telegram.dog/swiftui_dev)
+
 
 Swift package for service SBP (СБП), more details about SBP you can find [here](https://sbp.nspk.ru).
 
@@ -58,6 +59,11 @@ class ViewController: UIViewController {
   }
 }
 ```
+### with SwiftUI
+
+Just use `BanksView()`
+
+### project settings
 
 also you need add <b>LSApplicationQueriesSchemes</b> key into you project <b>info.plst</b> 
 
